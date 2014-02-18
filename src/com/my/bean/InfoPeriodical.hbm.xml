@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-2-17 20:09:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.my.bean.InfoPeriodical" table="info_periodical" catalog="documentmanage">
+        <id name="periodicalId" type="java.lang.Integer">
+            <column name="periodical_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="infoUnit" class="com.my.bean.InfoUnit" fetch="select">
+            <column name="unit_id" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="20" />
+        </property>
+        <property name="number" type="java.lang.Integer">
+            <column name="number" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="20" />
+        </property>
+        <property name="path" type="string">
+            <column name="path" length="65535" />
+        </property>
+        <set name="infoComments" table="info_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="periodical_id" />
+            </key>
+            <one-to-many class="com.my.bean.InfoComment" />
+        </set>
+    </class>
+</hibernate-mapping>

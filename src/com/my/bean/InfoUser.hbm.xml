@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-2-17 20:09:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.my.bean.InfoUser" table="info_user" catalog="documentmanage">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="20" />
+        </property>
+        <property name="pass" type="string">
+            <column name="pass" length="32" />
+        </property>
+        <property name="rname" type="string">
+            <column name="rname" length="20" />
+        </property>
+        <property name="age" type="java.lang.Integer">
+            <column name="age" />
+        </property>
+        <property name="idcard" type="string">
+            <column name="IDCard" length="20" />
+        </property>
+        <property name="school" type="string">
+            <column name="school" length="45" />
+        </property>
+        <property name="pecialty" type="string">
+            <column name="pecialty" length="20" />
+        </property>
+        <property name="educational" type="string">
+            <column name="educational" length="10" />
+        </property>
+        <property name="introduction" type="string">
+            <column name="introduction" length="65535" />
+        </property>
+        <set name="infoComments" table="info_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.my.bean.InfoComment" />
+        </set>
+    </class>
+</hibernate-mapping>

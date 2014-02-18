@@ -1,0 +1,11 @@
+* { padding: 0; margin: 0; }
+body { font-family:\5B8B\4F53,Arial, Helvetica, sans-serif; font-size:15px;}
+ol, ul { list-style:none; }
+a { color:#000; text-decoration:none; }
+.plTitle a { line-height: 29px; float: left;background:url(framework/images/icon1.gif) no-repeat left center; padding-left: 12px;color:#3f3f3f }
+.plTitle em {font-style:normal; font-weight:normal; line-height: 29px; float: right; background: url(framework/images/icon3.gif) no-repeat left center) no-repeat left center; padding-left: 15px; cursor: pointer; }
+.plTitle { padding-right: 13px; padding-left: 13px; float: left; repeat-x left bottom; width: 800px; }
+.proList .plCon { line-height:29px;  padding: 5px 6px 5px 26px; width:800px;}
+.proListHover .plTitle{background:none}
+.proListHover .plTitle a{font-weight:bold}
+.jzbkCon { padding-bottom: 35px; margin-left:120px }

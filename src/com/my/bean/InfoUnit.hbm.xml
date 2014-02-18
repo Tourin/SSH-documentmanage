@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-2-17 20:09:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.my.bean.InfoUnit" table="info_unit" catalog="documentmanage">
+        <id name="unitId" type="java.lang.Integer">
+            <column name="unit_id" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="20" />
+        </property>
+        <property name="scale" type="java.lang.Integer">
+            <column name="scale" />
+        </property>
+        <property name="industry" type="string">
+            <column name="industry" length="50" />
+        </property>
+        <property name="introduction" type="string">
+            <column name="introduction" length="65535" />
+        </property>
+        <set name="infoPeriodicals" table="info_periodical" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="unit_id" />
+            </key>
+            <one-to-many class="com.my.bean.InfoPeriodical" />
+        </set>
+    </class>
+</hibernate-mapping>

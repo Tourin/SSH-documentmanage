@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-2-17 20:09:48 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.my.bean.InfoComment" table="info_comment" catalog="documentmanage">
+        <id name="commentId" type="java.lang.Integer">
+            <column name="comment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="infoPeriodical" class="com.my.bean.InfoPeriodical" fetch="select">
+            <column name="periodical_id" />
+        </many-to-one>
+        <many-to-one name="infoUser" class="com.my.bean.InfoUser" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <many-to-one name="infoAdmin" class="com.my.bean.InfoAdmin" fetch="select">
+            <column name="admin_id" />
+        </many-to-one>
+        <many-to-one name="infoThesis" class="com.my.bean.InfoThesis" fetch="select">
+            <column name="thesis_id" />
+        </many-to-one>
+        <property name="info" type="string">
+            <column name="info" length="100" />
+        </property>
+        <property name="date" type="timestamp">
+            <column name="date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

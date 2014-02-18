@@ -1,0 +1,21 @@
+#content{
+	position:absolute;
+	width:100%;
+	left:0px;
+	top:101px;
+	z-index:1;
+}
+.a2 {
+	FONT-SIZE: 12px;
+	COLOR: #ffffff;
+	TEXT-DECORATION: none
+}
+
+.datalist tr:hover,.datalist tr.altrow{
+	background-color:#c4E2FF;
+} 
+
+input{
+border: 1px solid #CCCCCC;
+margin: auto;
+}

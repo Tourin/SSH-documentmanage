@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="documentmanage" match-name="info_admin"/>
+  <table-filter match-catalog="documentmanage" match-name="info_author"/>
+  <table-filter match-catalog="documentmanage" match-name="info_comment"/>
+  <table-filter match-catalog="documentmanage" match-name="info_periodical"/>
+  <table-filter match-catalog="documentmanage" match-name="info_thesis"/>
+  <table-filter match-catalog="documentmanage" match-name="info_unit"/>
+  <table-filter match-catalog="documentmanage" match-name="info_user"/>
+</hibernate-reverse-engineering>
