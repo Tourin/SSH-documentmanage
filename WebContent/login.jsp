@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <html>
 <HEAD>
-<TITLE>学生成绩管理与统计分析系统</TITLE>
+<TITLE>论文期刊管理系统</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=gb2312">
 
 <link rel="stylesheet" href="framework/css/style.css" type="text/css">
@@ -24,7 +24,7 @@
 								<td colspan=3 height="40">&nbsp;</td>
 							</tr>
 							<tr>
-								<td class=a1 align=middle width="100%" colspan="3"><h3>学生成绩管理与统计分析系统</h3></td>
+								<td class=a1 align=middle width="100%" colspan="3"><h3>论文期刊管理系统</h3></td>
 							</tr>
 
 							<tr>
@@ -32,7 +32,7 @@
 								<td class=a1 align=middle width="21%"><font class=a2
 									color=#55728a>用户名：</font></td>
 								<td class=a1 width="68%"><input style="WIDTH: 68%"
-									maxlength=12 size=8 name="user.userNo"></td>
+									maxlength=12 size=8 name="user.name"></td>
 							</tr>
 							<tr>
 								<td class=a1 align=middle width="11%" height=38>&nbsp;</td>
@@ -40,16 +40,15 @@
 									class=a2 color=#55728a>密&nbsp;&nbsp;码：</font></td>
 								<td class=a1 width="68%" height=38><input
 									style="WIDTH: 68%" type=password maxlength=16
-									name="user.passWord"></td>
+									name="user.pass"></td>
 							</tr>
 							<tr>
 								<td class=a1 align=middle width="11%" height=38>&nbsp;</td>
 								<td class=a1 align=middle width="21%" height=38><font
 									class=a2 color=#55728a>身&nbsp;&nbsp;份：</font></td>
 								<td class=a1 width="68%" height=38><select
-									name="user.role.id">
-										<option value="3">学生</option>
-										<option value="2">教师</option>
+									name="role">
+										<option value="2">读者</option>
 										<option value="1">管理员</option>
 								</select></td>
 							</tr>

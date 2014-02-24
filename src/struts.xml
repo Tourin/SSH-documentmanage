@@ -10,7 +10,7 @@
 	<package name="my" extends="struts-default">
 		<action name="*_acc" class="com.my.control.AccountAction"
 			method="{1}">
-			<result name="index">/main.jsp</result>
+			<result name="index">/index.jsp</result>
 			<result name="login">/login.jsp</result>
 			<result name="adduser">/adduser.jsp</result>
 			<result name="listuser">/listuser.jsp</result>

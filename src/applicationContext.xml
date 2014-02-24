@@ -41,4 +41,11 @@
 	<bean id="accountbo" class="com.my.bo.impl.AccountBoImpl" />
 
 	<bean id="basedao" class="com.my.dao.impl.BaseDAOImpl" />
+	<bean id="userdao" class="com.my.dao.impl.UserDAOImpl" />
+	<bean id="admindao" class="com.my.dao.impl.AdminDAOImpl" />
+	<bean id="authdao" class="com.my.dao.impl.AuthorDAOImpl" />
+	<bean id="unitdao" class="com.my.dao.impl.UnitDAOImpl" />
+	<bean id="thesisdao" class="com.my.dao.impl.ThesisDAOImpl" />
+	<bean id="perdao" class="com.my.dao.impl.PeriodicalDAOImpl" />
+	<bean id="commentdao" class="com.my.dao.impl.CommentDAOImpl" />
 </beans>
