@@ -12,18 +12,13 @@
 			method="{1}">
 			<result name="index">/index.jsp</result>
 			<result name="login">/login.jsp</result>
-			<result name="adduser">/adduser.jsp</result>
-			<result name="listuser">/listuser.jsp</result>
-			<result name="edituser">/edituser.jsp</result>
-			<result name="addtech">/addtech.jsp</result>
-			<result name="listtech">/listtech.jsp</result>
-			<result name="edittech">/edittech.jsp</result>
-			<result name="edituserpass">/edituserpass.jsp</result>
+			<result name="adduser">/templates/adduser.jsp</result>
+			<result name="edituser">/templates/edituser.jsp</result>
+			<result name="editadmin">/templates/editadmin.jsp</result>
 		</action>
 
 		<action name="*_cou" class="com.my.control.CourseAction"
 			method="{1}">
-			<result name="addcourse">/addcourse.jsp</result>
 			<result name="listcourse">/listcourse.jsp</result>
 			<result name="editcourse">/editcourse.jsp</result>
 		</action>

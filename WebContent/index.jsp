@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Backstage</title>
+  <title>论文期刊管理系统</title>
   <link rel="stylesheet" href="styles/backstage.css" />
   <style>
     html, body {
@@ -31,29 +31,13 @@
     <h1 class="sitename fleft">论文期刊管理系统</h1>
 
     <div class="userinfo fright shame-dbmrgn">
-      欢迎您，用户名&nbsp;[角色]
+      欢迎您，${admin.name}${user.name}&nbsp;
       <span class="rule-inline">|</span>
-      <a href="#" target="_blank">站点首页</a>
+      <a href="index.jsp">站点首页</a>
       <span class="rule-inline">|</span>
-      <a href="#">退出</a>
+      <a href="logout_acc">退出</a>
     </div><!-- / .userinfo -->
 
-    <div class="tab-nav">
-      <h2 class="tab_title is-tab_title-on">
-        <a data-toggle="tab"
-          data-indicator="h2"
-          data-active-title-class="is-tab_title-on"
-          href="#nav-section-1"
-          hidefocus>栏目一</a>
-      </h2>
-      <h2 class="tab_title">
-        <a data-toggle="tab"
-          data-indicator="h2"
-          data-active-title-class="is-tab_title-on"
-          href="#nav-section-2"
-          hidefocus>栏目二</a>
-      </h2>
-    </div><!-- / .tab-nav -->
   </div><!-- / .header -->
 
   <div class="aside">
@@ -63,26 +47,15 @@
         data-show-active-only="true">
         <h3 class="accordion_head is-accordion_head-on"
           data-toggle="accordion"
-          data-parent=".accordion">菜单一</h3>
+          data-parent=".accordion">菜单</h3>
         <div class="accordion_body on">
-          <a class="menu_item is-menu_item-on js-loading-trigger" href="templates/readme.html" target="mainframe" hidefocus>简介</a>
-          <a class="menu_item js-loading-trigger" href="templates/typography.html" target="mainframe" hidefocus>字体排印</a>
-          <a class="menu_item js-loading-trigger" href="templates/layout.html" target="mainframe" hidefocus>排版布局</a>
+          ${rights}
         </div>
-
         <h3 class="accordion_head"
           data-toggle="accordion"
-          data-parent=".accordion">菜单二</h3>
+          data-parent=".accordion">个人资料</h3>
         <div class="accordion_body">
-          <a class="menu_item js-loading-trigger" href="templates/icon.html" target="mainframe" hidefocus>图标</a>
-          <a class="menu_item js-loading-trigger" href="templates/button.html" target="mainframe" hidefocus>按钮</a>
-          <a class="menu_item js-loading-trigger" href="templates/tab.html" target="mainframe" hidefocus>选项卡</a>
-          <a class="menu_item js-loading-trigger" href="templates/accordion.html" target="mainframe" hidefocus>折叠</a>
-          <a class="menu_item js-loading-trigger" href="templates/dialog.html" target="mainframe" hidefocus>对话框</a>
-          <a class="menu_item js-loading-trigger" href="templates/panel.html" target="mainframe" hidefocus>面板</a>
-          <a class="menu_item js-loading-trigger" href="templates/table.html" target="mainframe" hidefocus>表格</a>
-          <a class="menu_item js-loading-trigger" href="templates/form.html" target="mainframe" hidefocus>表单</a>
-          <a class="menu_item js-loading-trigger" href="templates/calendar.html" target="mainframe" hidefocus>日历</a>
+          ${rights2}
         </div>
       </div>
     </div>
@@ -93,10 +66,7 @@
         data-show-active-only="true">
         <h3 class="accordion_head is-accordion_head-on"
           data-toggle="accordion"
-          data-parent=".accordion">菜单一</h3>
-        <div class="accordion_body on">
-          <a class="menu_item js-loading-trigger" href="templates/login.html" target="mainframe" hidefocus>登陆(@todo)</a>
-        </div>
+          data-parent=".accordion"></h3>
       </div>
     </div>
   </div><!-- / .aside -->
@@ -112,7 +82,7 @@
   </div><!-- / .crumb -->
 
   <div class="maincontainer">
-    <iframe name="mainframe" class="main" src="templates/readme.html" frameborder="0"></iframe>
+    <iframe name="mainframe" class="main" src="about.html" frameborder="0"></iframe>
   </div><!-- / .maincontainer -->
 
   <div class="loading" style="display: none;">正在加载...</div><!-- / #loading -->
