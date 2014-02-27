@@ -55,7 +55,7 @@ public class AuthorDAOImpl implements AuthorDAO {
 	@Override
 	public BigInteger searchTotalInfoAuthorRecords(InfoAuthor auth)
 			throws Exception {
-		String sql = "select count(author_id) from info_auth where name like ?";
+		String sql = "select count(author_id) from info_author where name like ?";
 		String item1 = auth.getName() + "%";
 		return basedao.getTotalRecords(sql, item1);
 	}

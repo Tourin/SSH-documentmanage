@@ -15,18 +15,18 @@
 			<result name="adduser">/templates/adduser.jsp</result>
 			<result name="edituser">/templates/edituser.jsp</result>
 			<result name="editadmin">/templates/editadmin.jsp</result>
+			<result name="edituserpass">/templates/edituserpass.jsp</result>
+			<result name="editadminpass">/templates/editadminpass.jsp</result>
 		</action>
 
-		<action name="*_cou" class="com.my.control.CourseAction"
+		<action name="*_adm" class="com.my.control.AdminAction"
 			method="{1}">
-			<result name="listcourse">/listcourse.jsp</result>
-			<result name="editcourse">/editcourse.jsp</result>
+			<result name="addauthor">/templates/addauthor.jsp</result>
+			<result name="addunit">/templates/addunit.jsp</result>
+			<result name="listauthor">/templates/listauthor.jsp</result>
+			<result name="listunit">/templates/listunit.jsp</result>
 		</action>
 
-		<action name="*_use" class="com.my.control.UserAction" method="{1}">
-			<result name="userallcourse">/userallcourse.jsp</result>
-			<result name="usercourse">/usercourse.jsp</result>
-		</action>
 
 	</package>
 </struts>

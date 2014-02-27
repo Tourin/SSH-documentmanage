@@ -40,7 +40,7 @@
 						<tr class="form-item">
 							<th class="form-key"><label for="oldpassword">原密码：</label></th>
 							<td class="form-value"><input id="oldpassword"
-								name="user.pass" class="text-input grid-3" type="password"
+								name="admin.pass" class="text-input grid-3" type="password"
 								data-parent=".form-item" required data-validation-empty="请填写原密码"
 								data-validation-placement="right" /></td>
 						</tr>

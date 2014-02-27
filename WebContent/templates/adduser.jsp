@@ -1,5 +1,4 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -21,16 +20,30 @@
 <body>
 	${message}
 	<div class="container">
-		<form class="form" action="editUser_acc" method="post">
+		<form class="form" action="addUser_acc" method="post">
 			<fieldset>
-				<legend>个人信息</legend>
+				<legend>用户注册</legend>
 				<table class="table table-form table-fluid">
 					<tbody>
+						<tr class="form-item">
+							<th class="form-key"><label for="text">用户名：</label></th>
+							<td class="form-value"><input id="text" name="user.name"
+								class="text-input grid-3" type="text" data-parent=".form-item"
+								required data-validation-empty="请填写用户名"
+								data-validation-placement="right" /></td>
+						</tr>
+						<tr class="form-item">
+							<th class="form-key"><label for="text">密码：</label></th>
+							<td class="form-value"><input id="text" name="user.pass"
+								class="text-input grid-3" type="password"
+								data-parent=".form-item" required data-validation-empty="请填写密码"
+								data-validation-placement="right" /></td>
+						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="text">姓名：</label></th>
 							<td class="form-value"><input id="text" name="user.rname"
 								class="text-input grid-3" type="text" data-parent=".form-item"
-								data-validation-placement="right" value="${user.rname}" /></td>
+								data-validation-placement="right" /></td>
 						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="number">年龄：</label></th>
@@ -39,7 +52,7 @@
 								required data-parent=".form-item"
 								data-validation-empty="年龄有误，请重新填写"
 								data-validation-error="年龄有误，请重新填写"
-								data-validation-placement="right" value="${user.age}" /></td>
+								data-validation-placement="right" /></td>
 						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="idcard">身份证号：</label></th>
@@ -48,53 +61,47 @@
 								required data-parent=".form-item"
 								data-validation-empty="身份证有误，请重新填写"
 								data-validation-error="身份证有误，请重新填写"
-								data-validation-placement="right" value="${user.idcard}" /></td>
+								data-validation-placement="right" /></td>
 						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="text">院校：</label></th>
 							<td class="form-value"><input id="text" name="user.school"
 								class="text-input grid-3" type="text" data-parent=".form-item"
-								data-validation-placement="right" value="${user.school}" /></td>
+								data-validation-placement="right" /></td>
 						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="text">专业：</label></th>
 							<td class="form-value"><input id="text" name="user.pecialty"
 								class="text-input grid-3" type="text" data-parent=".form-item"
-								data-validation-placement="right" value="${user.pecialty}" /></td>
+								data-validation-placement="right" /></td>
 						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="select">学历：</label></th>
 							<td class="form-value"><select id="select"
 								name="user.educational" class="grid-3"
 								data-validation-placement="right">
-									<option value="大专"
-										<c:if test="${user.educational eq '大专'}">selected="selected"</c:if>>大专</option>
-									<option value="本科"
-										<c:if test="${user.educational eq '本科'}">selected="selected"</c:if>>本科</option>
-									<option value="硕士"
-										<c:if test="${user.educational eq '硕士'}">selected="selected"</c:if>>硕士</option>
-									<option value="博士"
-										<c:if test="${user.educational eq '博士'}">selected="selected"</c:if>>博士</option>
+									<option value="大专">大专</option>
+									<option value="本科">本科</option>
+									<option value="硕士">硕士</option>
+									<option value="博士">博士</option>
 							</select></td>
 						</tr>
 						<tr class="form-item">
 							<th class="form-key"><label for="textarea">自我介绍：</label></th>
 							<td class="form-value"><textarea name="user.introduction"
-									id="textarea" class="grid-8" rows="10">${user.introduction}</textarea>
-								<br></td>
+									id="textarea" class="grid-8" rows="10"></textarea> <br></td>
 						</tr>
 					</tbody>
 					<tfoot>
 						<tr>
 							<td></td>
-							<td><input class="button" type="submit" value="保存" /></td>
+							<td><input class="button" type="submit" value="注册" />&nbsp;&nbsp;<input
+								class="button" onclick="window.location.href='../login.jsp'"
+								value="取消" /></td>
 						</tr>
 					</tfoot>
 				</table>
 			</fieldset>
-			<input type="hidden" name="user.userId" value="${user.userId}" /> <input
-				type="hidden" name="user.name" value="${user.name}" /> <input
-				type="hidden" name="user.pass" value="${user.pass}" />
 		</form>
 	</div>
 	<!-- / .container -->

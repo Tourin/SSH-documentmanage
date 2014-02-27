@@ -36,7 +36,8 @@ public class LoginFilter extends HttpServlet implements Filter {
 		if (url.equals(""))
 			url += "/";
 		// 若访问后台资源
-		if ((url.startsWith("/") && !url.startsWith("/login"))) {
+		if ((url.startsWith("/") && !url.startsWith("/login") && !url
+				.contains("adduser.jsp"))) {
 			// 过滤到login
 			String rights = (String) session.getAttribute("rights");
 			if (rights == null) {

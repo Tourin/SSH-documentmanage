@@ -1,5 +1,6 @@
 package com.my.control;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.RequestAware;
@@ -13,11 +14,14 @@ import com.my.bean.InfoThesis;
 import com.my.bean.InfoUnit;
 import com.my.bean.InfoUser;
 import com.my.bo.AccountBo;
+import com.my.bo.AdminBo;
+import com.my.util.PageBean;
 
 public class BaseAction implements RequestAware, SessionAware {
 	Map<String, Object> request;
 	Map<String, Object> session;
 	AccountBo accountbo;
+	AdminBo adminbo;
 	Integer pageNo;
 	InfoAdmin admin;
 	InfoUser user;
@@ -39,6 +43,10 @@ public class BaseAction implements RequestAware, SessionAware {
 
 	public void setAccountbo(AccountBo accountbo) {
 		this.accountbo = accountbo;
+	}
+
+	public void setAdminbo(AdminBo adminbo) {
+		this.adminbo = adminbo;
 	}
 
 	public Integer getPageNo() {
@@ -105,4 +113,17 @@ public class BaseAction implements RequestAware, SessionAware {
 		this.comment = comment;
 	}
 
+	@SuppressWarnings("unchecked")
+	public <T> PageBean<T> setPageBean(List<T> list, int totalRecords) {
+		PageBean<T> pagebean = (PageBean<T>) request.get("pagebean");
+		if (pagebean == null) {
+			pagebean = new PageBean<T>();
+			request.put("pagebean", pagebean);
+		}
+		pagebean.setPageNo(pageNo); // 设置当前页码
+		pagebean.setPageSize(15);// 每页显示15个
+		pagebean.setTotalRecords(totalRecords);
+		pagebean.setList(list);
+		return pagebean;
+	}
 }

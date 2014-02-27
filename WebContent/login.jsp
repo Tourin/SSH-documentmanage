@@ -4,10 +4,11 @@
 <TITLE>论文期刊管理系统</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=gb2312">
 
-<link rel="stylesheet" href="framework/css/style.css" type="text/css">
+<link rel="stylesheet" href="/documentmanage/framework/css/style.css"
+	type="text/css">
 </HEAD>
 <body
-	style="background: #FFF url('framework/images/login_back1.jpg') no-repeat;">
+	style="background: #FFF url('/documentmanage/framework/images/login_back1.jpg') no-repeat;">
 
 	${message}
 	<div id="content">
@@ -16,7 +17,7 @@
 				<tr valign=top>
 
 					<td width="92%" height=276 colspan="2" align=left
-						background="framework/images/03-a.bmp">
+						background="/documentmanage/framework/images/03-a.bmp">
 						<table cellspacing=0 cellpadding=0 width="53%" border=0
 							align="left">
 
@@ -39,15 +40,13 @@
 								<td class=a1 align=middle width="21%" height=38><font
 									class=a2 color=#55728a>密&nbsp;&nbsp;码：</font></td>
 								<td class=a1 width="68%" height=38><input
-									style="WIDTH: 68%" type=password maxlength=16
-									name="user.pass"></td>
+									style="WIDTH: 68%" type=password maxlength=16 name="user.pass"></td>
 							</tr>
 							<tr>
 								<td class=a1 align=middle width="11%" height=38>&nbsp;</td>
 								<td class=a1 align=middle width="21%" height=38><font
 									class=a2 color=#55728a>身&nbsp;&nbsp;份：</font></td>
-								<td class=a1 width="68%" height=38><select
-									name="role">
+								<td class=a1 width="68%" height=38><select name="role">
 										<option value="2">读者</option>
 										<option value="1">管理员</option>
 								</select></td>
@@ -59,7 +58,9 @@
 								<td class=a1 valign=bottom align=left width="68%" height=37>
 									<input type="submit" value=登录 name=Submit style="cursor: hand">
 									<input type="reset" value="重置" name=Submit2
-									style="cursor: hand">
+									style="cursor: hand"> <input type="button"
+									onclick="window.location.href='templates/adduser.jsp'"
+									value="注册" name=Submit2 style="cursor: hand">
 								</td>
 							</tr>
 
