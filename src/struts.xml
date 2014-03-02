@@ -7,6 +7,9 @@
 	<constant name="struts.objectFactory" value="spring" />
 	<constant name="struts.objectFactory.spring.autoWire" value="name" />
 
+	<!-- 控制上传文件的大小 -->
+	<constant name="struts.multipart.maxSize" value="10485761" />
+
 	<package name="my" extends="struts-default">
 		<action name="*_acc" class="com.my.control.AccountAction"
 			method="{1}">
@@ -19,12 +22,29 @@
 			<result name="editadminpass">/templates/editadminpass.jsp</result>
 		</action>
 
-		<action name="*_adm" class="com.my.control.AdminAction"
-			method="{1}">
+		<action name="*_adm" class="com.my.control.AdminAction" method="{1}">
 			<result name="addauthor">/templates/addauthor.jsp</result>
 			<result name="addunit">/templates/addunit.jsp</result>
 			<result name="listauthor">/templates/listauthor.jsp</result>
 			<result name="listunit">/templates/listunit.jsp</result>
+			<result name="editauthor">/templates/editauthor.jsp</result>
+			<result name="editunit">/templates/editunit.jsp</result>
+		</action>
+
+		<action name="*_doc" class="com.my.control.DocAction" method="{1}">
+			<result name="listauthor">/templates/listauthor.jsp</result>
+			<result name="listunit">/templates/listunit.jsp</result>
+			<result name="listthesis">/templates/listthesis.jsp</result>
+			<result name="listperiodical">/templates/listperiodical.jsp</result>
+			<result name="addthesis">/templates/addthesis.jsp</result>
+			<result name="addperiodical">/templates/addperiodical.jsp</result>
+			<result name="editthesis">/templates/editthesis.jsp</result>
+			<result name="editperiodical">/templates/editperiodical.jsp</result>
+		</action>
+
+		<action name="*_use" class="com.my.control.UserAction" method="{1}">
+			<result name="slistthesis">/templates/slistthesis.jsp</result>
+			<result name="slistperiodical">/templates/slistperiodical.jsp</result>
 		</action>
 
 

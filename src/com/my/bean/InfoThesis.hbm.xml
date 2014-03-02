@@ -14,6 +14,12 @@
         <property name="title" type="string">
             <column name="title" length="20" />
         </property>
+        <property name="specialty" type="string">
+            <column name="specialty" length="50" />
+        </property>
+        <property name="educational" type="string">
+            <column name="educational" length="20" />
+        </property>
         <property name="path" type="string">
             <column name="path" length="65535" />
         </property>

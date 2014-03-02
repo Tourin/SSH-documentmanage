@@ -24,55 +24,43 @@
 <body>
 	${message}
 	<c:if test="${empty requestScope.pagebean}">
-		<c:redirect url="listAuthorPrepare_adm" />
+		<c:redirect url="listPeriodicalPrepare_use" />
 	</c:if>
 	<div class="container">
-		<h2>查看作者论文</h2>
+		<h2>查看论文</h2>
 
-		<form class="panel panel-ctrl" action="searchAuthor_adm">
+		<form class="panel panel-ctrl" action="searchPeriodical_use">
 			<fieldset>
-				<label>输入作者姓名：</label><input name="auth.name"
-					class="text-input grid-2" type="text" placeholder="搜索提示信息" />
-
+				<label>输入发刊单位：</label><input name="per.infoUnit.name"
+					class="text-input grid-2" type="text" /> <label>类型：</label><input
+					name="per.type" class="text-input grid-2" type="text" />
 				<button class="button js-loading-trigger" type="submit">查询</button>
 			</fieldset>
 		</form>
 		<div class="clearfix">
 			<table class="table table-fluid">
-				<caption>作者信息列表</caption>
+				<caption>期刊信息列表</caption>
 				<thead data-spy="fixedHead" data-wrapper="table"
 					data-wrapper-class="table" data-target="#tbody-1">
 					<tr>
-						<th width="20%">姓名</th>
-						<th width="5%">年龄</th>
-						<th width="20%">身份证号</th>
-						<th width="15%">院校</th>
-						<th width="15%">专业</th>
-						<th width="5%">学历</th>
-						<th width="20%">操作</th>
+						<th width="20%">名称</th>
+						<th width="15%">期数</th>
+						<th width="15%">发刊单位</th>
+						<th width="15%">类型</th>
+						<th width="20%">附件</th>
+						<th width="15%">操作</th>
 					</tr>
 				</thead>
 				<tbody id="tbody-1" class="typo-center">
-					<c:forEach var="auth" items="${request.pagebean.list}">
+					<c:forEach var="per" items="${request.pagebean.list}">
 						<tr>
-							<td>${auth.name}</td>
-							<td>${auth.age}</td>
-							<td>${auth.idcard}</td>
-							<td>${auth.school}</td>
-							<td>${auth.specialty}</td>
-							<td>${auth.educational}</td>
+							<td>${per.name}</td>
+							<td>${per.number}</td>
+							<td>${per.infoUnit.name}</td>
+							<td>${per.type}</td>
+							<td>${per.path}</td>
 							<td><a
-								href="removeAuthor_adm?auth.authorId=${auth.authorId}&pageNo=${pagebean.pageNo}"
-								class="typo-danger">删除</a><span class="rule-inline">|</span> <a
-								href="editAuthorPrepare_adm?auth.authorId=${auth.authorId}">查看详情</a>
-								<span class="rule-inline">|</span> <a
-								href="<c:url value="addthesis.jsp">
-           						<c:param name="authorId" value="${auth.authorId}"/>  
-       							</c:url>"
-								class="typo-danger">添加论文</a><span class="rule-inline">|</span> <a
-								href="<c:url value="listthesis.jsp">
-           						<c:param name="authorId" value="${auth.authorId}"/>  
-       							</c:url>">查看论文</a></td>
+								href="editPeriodicalPrepare_use?periodical.periodicalId=${periodical.periodicalId}">查看评论</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

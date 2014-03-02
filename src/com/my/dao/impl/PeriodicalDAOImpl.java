@@ -57,16 +57,39 @@ public class PeriodicalDAOImpl implements PeriodicalDAO {
 	@Override
 	public BigInteger searchTotalInfoPeriodicalRecords(InfoPeriodical periodical)
 			throws Exception {
-		String sql = "select count(periodical_id) from info_periodical where name like ?";
-		String item1 = periodical.getName() + "%";
-		return basedao.getTotalRecords(sql, item1);
+		String sql;
+		if (periodical.getInfoUnit() == null
+				|| periodical.getInfoUnit().getUnitId() == null) {
+			sql = "select count(periodical_id) from info_periodical a left join info_unit b on a.unit_id=b.unit_id where b.name like ? and a.type like ?";
+			String item1 = periodical.getInfoUnit().getName() + "%";
+			String item2 = periodical.getType() + "%";
+			return basedao.getTotalRecords(sql, item1, item2);
+		} else {
+			sql = "select count(periodical_id) from info_periodical where name like ? and unit_id=?";
+			String item1 = periodical.getName() + "%";
+			String item2 = periodical.getInfoUnit().getUnitId().toString();
+			return basedao.getTotalRecords(sql, item1, item2);
+		}
 	}
 
 	@Override
 	public List<InfoPeriodical> searchInfoPeriodicalByPage(int pageindex,
 			int pagesize, InfoPeriodical periodical) throws Exception {
-		String hql = "from InfoPeriodical as a where a.name like ?";
-		String item1 = periodical.getName() + "%";
-		return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1);
+		String hql;
+		if (periodical.getInfoUnit() == null
+				|| periodical.getInfoUnit().getUnitId() == null) {
+			hql = "from InfoPeriodical as a where a.infoUnit.name like ? and a.type like ?";
+			String item1 = periodical.getInfoUnit().getName() + "%";
+			String item2 = periodical.getType() + "%";
+			return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1,
+					item2);
+		} else {
+			hql = "from InfoPeriodical as a where a.name like ? and a.infoUnit.unitId=?";
+			String item1 = periodical.getName() + "%";
+			String item2 = periodical.getInfoUnit().getUnitId().toString();
+			return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1,
+					item2);
+		}
+
 	}
 }

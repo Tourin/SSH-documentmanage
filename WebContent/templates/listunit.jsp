@@ -24,14 +24,14 @@
 <body>
 	${message}
 	<c:if test="${empty requestScope.pagebean}">
-		<c:redirect url="listAuthorPrepare_adm" />
+		<c:redirect url="listUnitPrepare_adm" />
 	</c:if>
 	<div class="container">
-		<h2>查看作者论文</h2>
+		<h2>查看发刊单位期刊</h2>
 
-		<form class="panel panel-ctrl" action="searchAuthor_adm">
+		<form class="panel panel-ctrl" action="searchUnit_adm">
 			<fieldset>
-				<label>输入作者姓名：</label><input name="auth.name"
+				<label>输入单位名称：</label><input name="unit.name"
 					class="text-input grid-2" type="text" placeholder="搜索提示信息" />
 
 				<button class="button js-loading-trigger" type="submit">查询</button>
@@ -39,40 +39,34 @@
 		</form>
 		<div class="clearfix">
 			<table class="table table-fluid">
-				<caption>作者信息列表</caption>
+				<caption>发刊单位信息列表</caption>
 				<thead data-spy="fixedHead" data-wrapper="table"
 					data-wrapper-class="table" data-target="#tbody-1">
 					<tr>
-						<th width="20%">姓名</th>
-						<th width="5%">年龄</th>
-						<th width="20%">身份证号</th>
-						<th width="15%">院校</th>
-						<th width="15%">专业</th>
-						<th width="5%">学历</th>
-						<th width="20%">操作</th>
+						<th width="30%">单位名称</th>
+						<th width="15%">单位规模</th>
+						<th width="30%">涉及领域</th>
+						<th width="25%">操作</th>
 					</tr>
 				</thead>
 				<tbody id="tbody-1" class="typo-center">
-					<c:forEach var="auth" items="${request.pagebean.list}">
+					<c:forEach var="unit" items="${request.pagebean.list}">
 						<tr>
-							<td>${auth.name}</td>
-							<td>${auth.age}</td>
-							<td>${auth.idcard}</td>
-							<td>${auth.school}</td>
-							<td>${auth.specialty}</td>
-							<td>${auth.educational}</td>
+							<td>${unit.name}</td>
+							<td>${unit.scale}</td>
+							<td>${unit.industry}</td>
 							<td><a
-								href="removeAuthor_adm?auth.authorId=${auth.authorId}&pageNo=${pagebean.pageNo}"
+								href="removeUnit_adm?unit.unitId=${unit.unitId}&pageNo=${pagebean.pageNo}"
 								class="typo-danger">删除</a><span class="rule-inline">|</span> <a
-								href="editAuthorPrepare_adm?auth.authorId=${auth.authorId}">查看详情</a>
-								<span class="rule-inline">|</span> <a
-								href="<c:url value="addthesis.jsp">
-           						<c:param name="authorId" value="${auth.authorId}"/>  
+								href="editUnitPrepare_adm?unit.unitId=${unit.unitId}">查看详情</a> <span
+								class="rule-inline">|</span> <a
+								href="<c:url value="addperiodical.jsp">
+           						<c:param name="unitId" value="${unit.unitId}"/>  
        							</c:url>"
-								class="typo-danger">添加论文</a><span class="rule-inline">|</span> <a
-								href="<c:url value="listthesis.jsp">
-           						<c:param name="authorId" value="${auth.authorId}"/>  
-       							</c:url>">查看论文</a></td>
+								class="typo-danger">添加期刊</a><span class="rule-inline">|</span> <a
+								href="<c:url value="listperiodical.jsp">
+           						<c:param name="unitId" value="${unit.unitId}"/>  
+       							</c:url>">查看期刊</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -13,16 +13,20 @@ public class InfoThesis implements java.io.Serializable {
 	private Integer thesisId;
 	private InfoAuthor infoAuthor;
 	private String title;
+	private String specialty;
+	private String educational;
 	private String path;
 	private Set infoComments = new HashSet(0);
 
 	public InfoThesis() {
 	}
 
-	public InfoThesis(InfoAuthor infoAuthor, String title, String path,
-			Set infoComments) {
+	public InfoThesis(InfoAuthor infoAuthor, String title, String specialty,
+			String educational, String path, Set infoComments) {
 		this.infoAuthor = infoAuthor;
 		this.title = title;
+		this.specialty = specialty;
+		this.educational = educational;
 		this.path = path;
 		this.infoComments = infoComments;
 	}
@@ -49,6 +53,22 @@ public class InfoThesis implements java.io.Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public String getSpecialty() {
+		return specialty;
+	}
+
+	public void setSpecialty(String specialty) {
+		this.specialty = specialty;
+	}
+
+	public String getEducational() {
+		return educational;
+	}
+
+	public void setEducational(String educational) {
+		this.educational = educational;
 	}
 
 	public String getPath() {

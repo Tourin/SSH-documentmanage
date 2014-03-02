@@ -3,6 +3,8 @@ package com.my.bo.impl;
 import java.math.BigInteger;
 import java.util.List;
 
+import org.hibernate.Hibernate;
+
 import com.my.bean.InfoAuthor;
 import com.my.bean.InfoPeriodical;
 import com.my.bean.InfoThesis;
@@ -141,7 +143,12 @@ public class AdminBoImpl extends BaseBo implements AdminBo {
 	public List<InfoThesis> getAllInfoThesisByPage(int pageindex, int pagesize)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return thesisdao.getAllInfoThesisByPage(pageindex, pagesize);
+		List<InfoThesis> allInfoThesisByPage = thesisdao
+				.getAllInfoThesisByPage(pageindex, pagesize);
+		for (InfoThesis thesis : allInfoThesisByPage) {
+			Hibernate.initialize(thesis.getInfoAuthor());
+		}
+		return allInfoThesisByPage;
 	}
 
 	@Override
@@ -155,7 +162,12 @@ public class AdminBoImpl extends BaseBo implements AdminBo {
 	public List<InfoThesis> searchInfoThesisByPage(int pageindex, int pagesize,
 			InfoThesis thesis) throws Exception {
 		// TODO Auto-generated method stub
-		return thesisdao.searchInfoThesisByPage(pageindex, pagesize, thesis);
+		List<InfoThesis> searchInfoThesisByPage = thesisdao
+				.searchInfoThesisByPage(pageindex, pagesize, thesis);
+		for (InfoThesis the : searchInfoThesisByPage) {
+			Hibernate.initialize(the.getInfoAuthor());
+		}
+		return searchInfoThesisByPage;
 	}
 
 	@Override
@@ -193,7 +205,12 @@ public class AdminBoImpl extends BaseBo implements AdminBo {
 	public List<InfoPeriodical> getAllInfoPeriodicalByPage(int pageindex,
 			int pagesize) throws Exception {
 		// TODO Auto-generated method stub
-		return perdao.getAllInfoPeriodicalByPage(pageindex, pagesize);
+		List<InfoPeriodical> allInfoPeriodicalByPage = perdao
+				.getAllInfoPeriodicalByPage(pageindex, pagesize);
+		for (InfoPeriodical per : allInfoPeriodicalByPage) {
+			Hibernate.initialize(per.getInfoUnit());
+		}
+		return allInfoPeriodicalByPage;
 	}
 
 	@Override
@@ -207,7 +224,12 @@ public class AdminBoImpl extends BaseBo implements AdminBo {
 	public List<InfoPeriodical> searchInfoPeriodicalByPage(int pageindex,
 			int pagesize, InfoPeriodical per) throws Exception {
 		// TODO Auto-generated method stub
-		return perdao.searchInfoPeriodicalByPage(pageindex, pagesize, per);
+		List<InfoPeriodical> searchInfoPeriodicalByPage = perdao
+				.searchInfoPeriodicalByPage(pageindex, pagesize, per);
+		for (InfoPeriodical p : searchInfoPeriodicalByPage) {
+			Hibernate.initialize(p.getInfoUnit());
+		}
+		return searchInfoPeriodicalByPage;
 	}
 
 }

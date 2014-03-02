@@ -44,10 +44,8 @@ public class AccountAction extends BaseAction {
 				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='templates/readme.html' target='mainframe' hidefocus>首页</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/addauthor.jsp' target='mainframe' hidefocus>添加作者</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/addunit.jsp' target='mainframe' hidefocus>添加发刊单位</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/listauthor.jsp' target='mainframe' hidefocus>查看作者和论文</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/listunit.jsp' target='mainframe' hidefocus>查看发刊单位和期刊</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/typography.html' target='mainframe' hidefocus>添加论文</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/typography.html' target='mainframe' hidefocus>添加期刊</a>");
+				stf.append("<a class='menu_item js-loading-trigger' href='templates/listauthor.jsp' target='mainframe' hidefocus>查看作者论文</a>");
+				stf.append("<a class='menu_item js-loading-trigger' href='templates/listunit.jsp' target='mainframe' hidefocus>查看发刊单位期刊</a>");
 				stf2.append("<a class='menu_item js-loading-trigger' href='templates/editadmin.jsp' target='mainframe' hidefocus>基础信息</a>");
 				stf2.append("<a class='menu_item js-loading-trigger' href='templates/editadminpass.jsp' target='mainframe' hidefocus>修改密码</a>");
 				session.put("rights", stf.toString());
@@ -63,8 +61,8 @@ public class AccountAction extends BaseAction {
 				return "login";
 			} else {
 				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='templates/readme.html' target='mainframe' hidefocus>首页</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/typography.html' target='mainframe' hidefocus>论文查询</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/typography.html' target='mainframe' hidefocus>期刊查询</a>");
+				stf.append("<a class='menu_item js-loading-trigger' href='templates/slistthesis.jsp' target='mainframe' hidefocus>论文查询</a>");
+				stf.append("<a class='menu_item js-loading-trigger' href='templates/slistperiodical.jsp' target='mainframe' hidefocus>期刊查询</a>");
 				stf2.append("<a class='menu_item js-loading-trigger' href='templates/edituser.jsp' target='mainframe' hidefocus>基础信息</a>");
 				stf2.append("<a class='menu_item js-loading-trigger' href='templates/edituserpass.jsp' target='mainframe' hidefocus>修改密码</a>");
 				session.put("rights", stf.toString());

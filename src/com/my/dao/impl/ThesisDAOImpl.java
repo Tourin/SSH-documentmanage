@@ -41,7 +41,7 @@ public class ThesisDAOImpl implements ThesisDAO {
 
 	@Override
 	public BigInteger getTotalInfoThesisRecords() throws Exception {
-		String sql = "select count(thesis_id) from info_thesisor";
+		String sql = "select count(thesis_id) from info_thesis";
 		return basedao.getTotalRecords(sql);
 	}
 
@@ -55,16 +55,39 @@ public class ThesisDAOImpl implements ThesisDAO {
 	@Override
 	public BigInteger searchTotalInfoThesisRecords(InfoThesis thesis)
 			throws Exception {
-		String sql = "select count(thesis_id) from info_thesis where title like ?";
-		String item1 = thesis.getTitle() + "%";
-		return basedao.getTotalRecords(sql, item1);
+		String sql;
+		if (thesis.getInfoAuthor() == null
+				|| thesis.getInfoAuthor().getAuthorId() == null) {
+			sql = "select count(thesis_id) from info_thesis where specialty like ? and educational like ?";
+			String item1 = thesis.getSpecialty() + "%";
+			String item2 = thesis.getEducational() + "%";
+			return basedao.getTotalRecords(sql, item1, item2);
+		} else {
+			sql = "select count(thesis_id) from info_thesis where title like ? and author_id=?";
+			String item1 = thesis.getTitle() + "%";
+			String item2 = thesis.getInfoAuthor().getAuthorId().toString();
+			return basedao.getTotalRecords(sql, item1, item2);
+		}
 	}
 
 	@Override
 	public List<InfoThesis> searchInfoThesisByPage(int pageindex, int pagesize,
 			InfoThesis thesis) throws Exception {
-		String hql = "from InfoThesis as t where t.title like ?";
-		String item1 = thesis.getTitle() + "%";
-		return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1);
+		String hql;
+		if (thesis.getInfoAuthor() == null
+				|| thesis.getInfoAuthor().getAuthorId() == null) {
+			hql = "from InfoThesis as t where t.specialty like ? and t.educational like ?";
+			String item1 = thesis.getSpecialty() + "%";
+			String item2 = thesis.getEducational() + "%";
+			return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1,
+					item2);
+		} else {
+			hql = "from InfoThesis as t where t.title like ? and t.infoAuthor.authorId=?";
+			String item1 = thesis.getTitle() + "%";
+			String item2 = thesis.getInfoAuthor().getAuthorId().toString();
+			return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1,
+					item2);
+
+		}
 	}
 }

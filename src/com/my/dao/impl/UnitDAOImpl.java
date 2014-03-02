@@ -41,7 +41,7 @@ public class UnitDAOImpl implements UnitDAO {
 
 	@Override
 	public BigInteger getTotalInfoUnitRecords() throws Exception {
-		String sql = "select count(unit_id) from info_unitor";
+		String sql = "select count(unit_id) from info_unit";
 		return basedao.getTotalRecords(sql);
 	}
 
