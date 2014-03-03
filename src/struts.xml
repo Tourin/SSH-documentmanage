@@ -10,6 +10,7 @@
 	<!-- 控制上传文件的大小 -->
 	<constant name="struts.multipart.maxSize" value="10485761" />
 
+
 	<package name="my" extends="struts-default">
 		<action name="*_acc" class="com.my.control.AccountAction"
 			method="{1}">
