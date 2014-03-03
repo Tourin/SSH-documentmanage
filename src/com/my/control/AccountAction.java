@@ -2,6 +2,7 @@ package com.my.control;
 
 import com.my.bean.InfoAdmin;
 import com.my.bean.InfoUser;
+import com.my.util.MD5;
 
 public class AccountAction extends BaseAction {
 
@@ -32,9 +33,10 @@ public class AccountAction extends BaseAction {
 		}
 		StringBuilder stf = new StringBuilder();
 		StringBuilder stf2 = new StringBuilder();
+		String psMD5 = MD5.passwordToHash(user.getPass());
 		if (role.equals("1")) {
 			admin.setName(user.getName());
-			admin.setPass(user.getPass());
+			admin.setPass(psMD5);
 			admin = accountbo.checkLoginInfoAdmin(admin);
 			if (admin == null) {
 				request.put("message",
@@ -54,6 +56,7 @@ public class AccountAction extends BaseAction {
 				return "index";
 			}
 		} else {
+			user.setPass(psMD5);
 			user = accountbo.checkLoginInfoUser(user);
 			if (user == null) {
 				request.put("message",
@@ -90,13 +93,14 @@ public class AccountAction extends BaseAction {
 	public String editUserPass() throws Exception {
 		InfoUser u = (InfoUser) session.get("user");
 		user.setName(u.getName());
+		user.setPass(MD5.passwordToHash(user.getPass()));
 		user = accountbo.checkLoginInfoUser(user);
 		if (user == null) {
 			request.put("message",
 					"<script laguage='JavaScript'> alert('原始密码不对，请重新输入!') </script>");
 			return "edituserpass";
 		}
-		u.setPass(newpassword);
+		u.setPass(MD5.passwordToHash(newpassword));
 		accountbo.editInfoUser(u);
 		session.clear();
 		request.put("message",
@@ -115,13 +119,14 @@ public class AccountAction extends BaseAction {
 	public String editAdminPass() throws Exception {
 		InfoAdmin a = (InfoAdmin) session.get("admin");
 		admin.setName(a.getName());
+		admin.setPass(MD5.passwordToHash(admin.getPass()));
 		admin = accountbo.checkLoginInfoAdmin(admin);
 		if (admin == null) {
 			request.put("message",
 					"<script laguage='JavaScript'> alert('原始密码不对，请重新输入!') </script>");
 			return "editadminpass";
 		}
-		a.setPass(newpassword);
+		a.setPass(MD5.passwordToHash(newpassword));
 		accountbo.editInfoAdmin(a);
 		session.clear();
 		request.put("message",
@@ -134,6 +139,7 @@ public class AccountAction extends BaseAction {
 			request.put("message", "用户名已经存在!");
 			return "adduser";
 		}
+		user.setPass(MD5.passwordToHash(user.getPass()));
 		accountbo.addInfoUser(user);
 		request.put("message",
 				"<script laguage='JavaScript'> alert('注册成功，请登录!') </script>");

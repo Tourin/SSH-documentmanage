@@ -65,7 +65,7 @@
 							<td>${thesis.educational}</td>
 							<td>${thesis.path}</td>
 							<td><a
-								href="editThesisPrepare_doc?thesis.thesisId=${thesis.thesisId}">查看评论</a></td>
+								href="getComments_use?comment.infoThesis.thesisId=${thesis.thesisId}">查看评论</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

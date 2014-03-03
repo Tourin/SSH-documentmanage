@@ -15,6 +15,7 @@ import com.my.bean.InfoUnit;
 import com.my.bean.InfoUser;
 import com.my.bo.AccountBo;
 import com.my.bo.AdminBo;
+import com.my.bo.UserBo;
 import com.my.util.PageBean;
 
 public class BaseAction implements RequestAware, SessionAware {
@@ -22,6 +23,7 @@ public class BaseAction implements RequestAware, SessionAware {
 	Map<String, Object> session;
 	AccountBo accountbo;
 	AdminBo adminbo;
+	UserBo userbo;
 	Integer pageNo;
 	InfoAdmin admin;
 	InfoUser user;
@@ -47,6 +49,10 @@ public class BaseAction implements RequestAware, SessionAware {
 
 	public void setAdminbo(AdminBo adminbo) {
 		this.adminbo = adminbo;
+	}
+
+	public void setUserbo(UserBo userbo) {
+		this.userbo = userbo;
 	}
 
 	public Integer getPageNo() {

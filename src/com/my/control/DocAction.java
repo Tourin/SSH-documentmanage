@@ -76,7 +76,7 @@ public class DocAction extends BaseAction {
 				System.out.println(uploadFileFileName);
 				System.out.println(filePath.getParentFile());
 				System.out.println(filePath);
-				thesis.setPath(filePath.toString().substring(39)
+				thesis.setPath(filePath.toString().substring(38)
 						.replace('\\', '/'));
 				// 将文件保存到硬盘上,Struts2会帮我们自动删除临时文件
 				try {
@@ -130,7 +130,7 @@ public class DocAction extends BaseAction {
 				System.out.println(uploadFileFileName);
 				System.out.println(filePath.getParentFile());
 				System.out.println(filePath);
-				per.setPath(filePath.toString().substring(39)
+				per.setPath(filePath.toString().substring(38)
 						.replace('\\', '/'));
 				// 将文件保存到硬盘上,Struts2会帮我们自动删除临时文件
 				try {

@@ -60,7 +60,7 @@
 							<td>${per.type}</td>
 							<td>${per.path}</td>
 							<td><a
-								href="editPeriodicalPrepare_use?periodical.periodicalId=${periodical.periodicalId}">查看评论</a></td>
+								href="getComments_use?comment.infoPeriodical.periodicalId=${periodical.periodicalId}">查看评论</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -32,7 +32,7 @@
 <body>
 	${message}
 	<div class="container">
-		<form class="form" action="editUserPass_acc" method="post">
+		<form class="form" action="editAdminPass_acc" method="post">
 			<fieldset>
 				<legend>个人信息</legend>
 				<table class="table table-form table-fluid">

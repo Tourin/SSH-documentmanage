@@ -40,6 +40,7 @@
 
 	<bean id="accountbo" class="com.my.bo.impl.AccountBoImpl" />
 	<bean id="adminbo" class="com.my.bo.impl.AdminBoImpl" />
+	<bean id="userbo" class="com.my.bo.impl.UserBoImpl" />
 
 	<bean id="basedao" class="com.my.dao.impl.BaseDAOImpl" />
 	<bean id="userdao" class="com.my.dao.impl.UserDAOImpl" />

@@ -2,6 +2,7 @@ package com.my.control;
 
 import java.util.List;
 
+import com.my.bean.InfoComment;
 import com.my.bean.InfoPeriodical;
 import com.my.bean.InfoThesis;
 import com.my.util.PageBean;
@@ -60,5 +61,25 @@ public class UserAction extends BaseAction {
 				.setPageBean(list, totalRecords);
 		pagebean.setPageAction("searchPeriodical_use");
 		return "slistperiodical";
+	}
+
+	public String getComments() throws Exception {
+		if (pageNo == null || pageNo == 0) {
+			pageNo = 1;
+		}
+		int totalRecords = 0;
+		List<InfoComment> list;
+		if (comment.getInfoThesis() == null) {
+			list = userbo.searchInfoCommentByPage(pageNo, 15, comment, false);
+			totalRecords = userbo.searchTotalInfoCommentRecords(comment, false)
+					.intValue();
+		} else {
+			list = userbo.searchInfoCommentByPage(pageNo, 15, comment, true);
+			totalRecords = userbo.searchTotalInfoCommentRecords(comment, true)
+					.intValue();
+		}
+		PageBean<InfoComment> pagebean = this.setPageBean(list, totalRecords);
+		pagebean.setPageAction("getComments_use");
+		return "comment";
 	}
 }

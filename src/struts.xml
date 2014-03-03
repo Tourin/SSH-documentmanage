@@ -47,6 +47,7 @@
 		<action name="*_use" class="com.my.control.UserAction" method="{1}">
 			<result name="slistthesis">/templates/slistthesis.jsp</result>
 			<result name="slistperiodical">/templates/slistperiodical.jsp</result>
+			<result name="comment">/templates/comment.jsp</result>
 		</action>
 
 
