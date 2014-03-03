@@ -31,6 +31,7 @@
 			<result name="editauthor">/templates/editauthor.jsp</result>
 			<result name="editunit">/templates/editunit.jsp</result>
 		</action>
+		
 
 		<action name="*_doc" class="com.my.control.DocAction" method="{1}">
 			<result name="listauthor">/templates/listauthor.jsp</result>
