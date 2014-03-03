@@ -3,6 +3,8 @@ package com.my.bo.impl;
 import java.math.BigInteger;
 import java.util.List;
 
+import org.hibernate.Hibernate;
+
 import com.my.bean.InfoComment;
 import com.my.bo.UserBo;
 
@@ -45,8 +47,13 @@ public class UserBoImpl extends BaseBo implements UserBo {
 			int pagesize, InfoComment comment, boolean isThesis)
 			throws Exception {
 		// TODO Auto-generated method stub
-		return commentdao.searchInfoCommentByPage(pageindex, pagesize, comment,
-				isThesis);
+		List<InfoComment> searchInfoCommentByPage = commentdao
+				.searchInfoCommentByPage(pageindex, pagesize, comment, isThesis);
+		for (InfoComment c : searchInfoCommentByPage) {
+			Hibernate.initialize(c.getInfoAdmin());
+			Hibernate.initialize(c.getInfoUser());
+		}
+		return searchInfoCommentByPage;
 	}
 
 }

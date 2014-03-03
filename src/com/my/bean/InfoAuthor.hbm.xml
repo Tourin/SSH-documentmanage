@@ -29,7 +29,7 @@
         <property name="introduction" type="string">
             <column name="introduction" length="65535" />
         </property>
-        <set name="infoThesises" table="info_thesis" inverse="true" lazy="true" fetch="select">
+        <set name="infoThesises" table="info_thesis" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="author_id" />
             </key>

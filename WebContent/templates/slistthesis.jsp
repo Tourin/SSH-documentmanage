@@ -63,7 +63,7 @@
 							<td>${thesis.infoAuthor.name}</td>
 							<td>${thesis.specialty}</td>
 							<td>${thesis.educational}</td>
-							<td>${thesis.path}</td>
+							<td><a href="..${thesis.path}">下载</a></td>
 							<td><a
 								href="getComments_use?comment.infoThesis.thesisId=${thesis.thesisId}">查看评论</a></td>
 						</tr>

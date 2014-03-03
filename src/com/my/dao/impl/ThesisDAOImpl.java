@@ -87,7 +87,6 @@ public class ThesisDAOImpl implements ThesisDAO {
 			String item2 = thesis.getInfoAuthor().getAuthorId().toString();
 			return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1,
 					item2);
-
 		}
 	}
 }

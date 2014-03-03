@@ -58,9 +58,9 @@
 							<td>${per.number}</td>
 							<td>${per.infoUnit.name}</td>
 							<td>${per.type}</td>
-							<td>${per.path}</td>
+							<td><a href="..${per.path}">下载</a></td>
 							<td><a
-								href="getComments_use?comment.infoPeriodical.periodicalId=${periodical.periodicalId}">查看评论</a></td>
+								href="getComments_use?comment.infoPeriodical.periodicalId=${per.periodicalId}">查看评论</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

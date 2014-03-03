@@ -51,11 +51,14 @@
 							<td>${per.number}</td>
 							<td>${per.infoUnit.name}</td>
 							<td>${per.type}</td>
-							<td>${per.path}</td>
+							<td><a href="..${per.path}">下载</a></td>
 							<td><a
 								href="removePeriodical_doc?per.periodicalId=${per.periodicalId}&pageNo=${pagebean.pageNo}&per.infoUnit.unitId=${param.unitId}&per.name="
 								class="typo-danger">删除</a><span class="rule-inline">|</span> <a
-								href="editPeriodicalPrepare_doc?per.periodicalId=${per.periodicalId}">修改</a></td>
+								href="editPeriodicalPrepare_doc?per.periodicalId=${per.periodicalId}">修改</a><span
+								class="rule-inline">|</span><a
+								href="getComments_use?comment.infoPeriodical.periodicalId=${per.periodicalId}"
+								class="typo-danger">查看评论</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

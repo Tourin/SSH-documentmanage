@@ -23,7 +23,7 @@
         <property name="path" type="string">
             <column name="path" length="65535" />
         </property>
-        <set name="infoComments" table="info_comment" inverse="true" lazy="true" fetch="select">
+        <set name="infoComments" table="info_comment" inverse="true" lazy="true" fetch="select" cascade="all">
             <key>
                 <column name="periodical_id" />
             </key>

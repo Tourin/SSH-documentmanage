@@ -48,6 +48,7 @@
 			<result name="slistthesis">/templates/slistthesis.jsp</result>
 			<result name="slistperiodical">/templates/slistperiodical.jsp</result>
 			<result name="comment">/templates/comment.jsp</result>
+			<result name="recommend">/templates/recommend.jsp</result>
 		</action>
 
 

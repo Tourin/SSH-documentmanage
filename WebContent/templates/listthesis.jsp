@@ -51,11 +51,13 @@
 							<td>${thesis.infoAuthor.name}</td>
 							<td>${thesis.specialty}</td>
 							<td>${thesis.educational}</td>
-							<td>${thesis.path}</td>
+							<td><a href="..${thesis.path}">下载</a></td>
 							<td><a
 								href="removeThesis_doc?thesis.thesisId=${thesis.thesisId}&pageNo=${pagebean.pageNo}&thesis.infoAuthor.authorId=${param.authorId}&thesis.title="
 								class="typo-danger">删除</a><span class="rule-inline">|</span> <a
-								href="editThesisPrepare_doc?thesis.thesisId=${thesis.thesisId}">修改</a></td>
+								href="editThesisPrepare_doc?thesis.thesisId=${thesis.thesisId}">修改</a><span
+								class="rule-inline">|</span><a
+								href="getComments_use?comment.infoThesis.thesisId=${thesis.thesisId}" class="typo-danger">查看评论</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

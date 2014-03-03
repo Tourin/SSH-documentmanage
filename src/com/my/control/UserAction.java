@@ -1,10 +1,13 @@
 package com.my.control;
 
+import java.util.Date;
 import java.util.List;
 
+import com.my.bean.InfoAdmin;
 import com.my.bean.InfoComment;
 import com.my.bean.InfoPeriodical;
 import com.my.bean.InfoThesis;
+import com.my.bean.InfoUser;
 import com.my.util.PageBean;
 
 public class UserAction extends BaseAction {
@@ -81,5 +84,42 @@ public class UserAction extends BaseAction {
 		PageBean<InfoComment> pagebean = this.setPageBean(list, totalRecords);
 		pagebean.setPageAction("getComments_use");
 		return "comment";
+	}
+
+	public String addComment() throws Exception {
+		user = (InfoUser) session.get("user");
+		admin = (InfoAdmin) session.get("admin");
+		InfoUser u = new InfoUser();
+		if (user != null) {
+			u.setUserId(user.getUserId());
+		}
+		InfoAdmin a = new InfoAdmin();
+		if (admin != null) {
+			a.setAdminId(admin.getAdminId());
+		}
+		if (user != null) {
+			comment.setInfoUser(u);
+		} else {
+			comment.setInfoAdmin(a);
+		}
+		if (comment.getInfoPeriodical().getPeriodicalId() == null) {
+			comment.setInfoPeriodical(null);
+		} else {
+			comment.setInfoThesis(null);
+		}
+		comment.setDate(new Date());
+		userbo.addInfoComment(comment);
+		return this.getComments();
+	}
+
+	public String recommend() throws Exception {
+		user = (InfoUser) session.get("user");
+		InfoThesis t = new InfoThesis();
+		t.setSpecialty(user.getPecialty());
+		t.setEducational(user.getEducational());
+		List<InfoThesis> searchInfoThesisByPage = adminbo
+				.searchInfoThesisByPage(1, 15, t);
+
+		return "";
 	}
 }

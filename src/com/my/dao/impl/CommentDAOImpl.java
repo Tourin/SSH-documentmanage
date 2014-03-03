@@ -61,10 +61,10 @@ public class CommentDAOImpl implements CommentDAO {
 		String hql;
 		String item1;
 		if (isThesis) {
-			hql = "from InfoComment as c where c.infoThesis.thesisId = ?";
+			hql = "from InfoComment as c where c.infoThesis.thesisId = ? order by c.date desc";
 			item1 = comment.getInfoThesis().getThesisId().toString();
 		} else {
-			hql = "from InfoComment as c where c.infoPeriodical.periodicalId = ?";
+			hql = "from InfoComment as c where c.infoPeriodical.periodicalId = ? order by c.date desc";
 			item1 = comment.getInfoPeriodical().getPeriodicalId().toString();
 		}
 		return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1);

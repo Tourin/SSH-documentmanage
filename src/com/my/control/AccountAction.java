@@ -43,7 +43,7 @@ public class AccountAction extends BaseAction {
 						"<script laguage='JavaScript'> alert('用户名密码不正确!') </script>");
 				return "login";
 			} else {
-				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='templates/readme.html' target='mainframe' hidefocus>首页</a>");
+				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='about.html' target='mainframe' hidefocus>首页</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/addauthor.jsp' target='mainframe' hidefocus>添加作者</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/addunit.jsp' target='mainframe' hidefocus>添加发刊单位</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/listauthor.jsp' target='mainframe' hidefocus>查看作者论文</a>");
@@ -63,7 +63,7 @@ public class AccountAction extends BaseAction {
 						"<script laguage='JavaScript'> alert('用户名密码不正确!') </script>");
 				return "login";
 			} else {
-				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='templates/readme.html' target='mainframe' hidefocus>首页</a>");
+				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='templates/recommend.jsp' target='mainframe' hidefocus>首页</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/slistthesis.jsp' target='mainframe' hidefocus>论文查询</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/slistperiodical.jsp' target='mainframe' hidefocus>期刊查询</a>");
 				stf2.append("<a class='menu_item js-loading-trigger' href='templates/edituser.jsp' target='mainframe' hidefocus>基础信息</a>");
