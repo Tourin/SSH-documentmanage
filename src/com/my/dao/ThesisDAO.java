@@ -25,4 +25,10 @@ public interface ThesisDAO {
 
 	List<InfoThesis> searchInfoThesisByPage(int pageindex, int pagesize,
 			InfoThesis thesis) throws Exception;
+
+	BigInteger searchTotalInfoThesisRecordsKey(InfoThesis thesis)
+			throws Exception;
+
+	List<InfoThesis> searchInfoThesisByPageKey(int pageindex, int pagesize,
+			InfoThesis thesis) throws Exception;
 }

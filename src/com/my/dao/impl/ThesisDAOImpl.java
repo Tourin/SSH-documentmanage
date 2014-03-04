@@ -89,4 +89,20 @@ public class ThesisDAOImpl implements ThesisDAO {
 					item2);
 		}
 	}
+
+	@Override
+	public BigInteger searchTotalInfoThesisRecordsKey(InfoThesis thesis)
+			throws Exception {
+		String sql = "select count(thesis_id) from info_thesis where title like ?";
+		String item1 = thesis.getTitle() + "%";
+		return basedao.getTotalRecords(sql, item1);
+	}
+
+	@Override
+	public List<InfoThesis> searchInfoThesisByPageKey(int pageindex,
+			int pagesize, InfoThesis thesis) throws Exception {
+		String hql = "from InfoThesis as t where t.title like ?";
+		String item1 = thesis.getTitle() + "%";
+		return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1);
+	}
 }

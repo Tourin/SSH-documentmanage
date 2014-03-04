@@ -19,18 +19,17 @@
 </script>
 </head>
 <body>
+	<c:if test="${empty thesisList or empty perList}">
+		<c:redirect url="recommend_use" />
+	</c:if>
 	<div class="container">
-		<div class="panel panel-info grid-3">
+		<div class="panel panel-info grid-6">
 			<h5 class="panel_head">论文推荐</h5>
-			<div class="panel_body">
-				
-			</div>
+			<div class="panel_body"></div>
 		</div>
 		<div class="panel panel-info grid-6">
 			<h5 class="panel_head">期刊推荐</h5>
-			<div class="panel_body">
-				
-			</div>
+			<div class="panel_body"></div>
 		</div>
 	</div>
 	<!-- / .container -->

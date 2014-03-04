@@ -58,7 +58,7 @@
 						<tr>
 							<td></td>
 							<td><input class="button" type="submit" value="保存" />&nbsp;&nbsp;<input
-								class="button" onclick="window.location.href='listauthor.jsp'"
+								class="button" onclick="window.location.href='listunit.jsp'"
 								value="取消" type="reset" /></td>
 						</tr>
 					</tfoot>

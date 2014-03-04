@@ -26,4 +26,10 @@ public interface PeriodicalDAO {
 
 	List<InfoPeriodical> searchInfoPeriodicalByPage(int pageindex,
 			int pagesize, InfoPeriodical per) throws Exception;
+
+	BigInteger searchTotalInfoPeriodicalRecordsKey(InfoPeriodical per)
+			throws Exception;
+
+	List<InfoPeriodical> searchInfoPeriodicalByPageKey(int pageindex,
+			int pagesize, InfoPeriodical per) throws Exception;
 }

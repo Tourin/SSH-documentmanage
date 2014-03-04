@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.Hibernate;
 
 import com.my.bean.InfoComment;
+import com.my.bean.InfoPeriodical;
+import com.my.bean.InfoThesis;
 import com.my.bo.UserBo;
 
 public class UserBoImpl extends BaseBo implements UserBo {
@@ -54,6 +56,40 @@ public class UserBoImpl extends BaseBo implements UserBo {
 			Hibernate.initialize(c.getInfoUser());
 		}
 		return searchInfoCommentByPage;
+	}
+
+	@Override
+	public BigInteger searchTotalInfoThesisRecordsKey(InfoThesis thesis)
+			throws Exception {
+		return thesisdao.searchTotalInfoThesisRecordsKey(thesis);
+	}
+
+	@Override
+	public List<InfoThesis> searchInfoThesisByPageKey(int pageindex,
+			int pagesize, InfoThesis thesis) throws Exception {
+		List<InfoThesis> searchInfoThesisByPageKey = thesisdao
+				.searchInfoThesisByPageKey(pageindex, pagesize, thesis);
+		for (InfoThesis t : searchInfoThesisByPageKey) {
+			Hibernate.initialize(t.getInfoAuthor());
+		}
+		return searchInfoThesisByPageKey;
+	}
+
+	@Override
+	public BigInteger searchTotalInfoPeriodicalRecordsKey(InfoPeriodical per)
+			throws Exception {
+		return perdao.searchTotalInfoPeriodicalRecordsKey(per);
+	}
+
+	@Override
+	public List<InfoPeriodical> searchInfoPeriodicalByPageKey(int pageindex,
+			int pagesize, InfoPeriodical per) throws Exception {
+		List<InfoPeriodical> searchInfoPeriodicalByPageKey = perdao
+				.searchInfoPeriodicalByPageKey(pageindex, pagesize, per);
+		for (InfoPeriodical p : searchInfoPeriodicalByPageKey) {
+			Hibernate.initialize(p.getInfoUnit());
+		}
+		return searchInfoPeriodicalByPageKey;
 	}
 
 }

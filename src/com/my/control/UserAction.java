@@ -25,6 +25,19 @@ public class UserAction extends BaseAction {
 		return "slistthesis";
 	}
 
+	public String listThesisPrepareKey() throws Exception {
+		if (pageNo == null || pageNo == 0) {
+			pageNo = 1;
+		}
+		int totalRecords = 0;
+		List<InfoThesis> list;
+		list = adminbo.getAllInfoThesisByPage(pageNo, 15);
+		totalRecords = adminbo.getTotalInfoThesisRecords().intValue();
+		PageBean<InfoThesis> pagebean = this.setPageBean(list, totalRecords);
+		pagebean.setPageAction("listThesisPrepareKey_use");
+		return "sklistthesis";
+	}
+
 	public String searchThesis() throws Exception {
 		if (pageNo == null || pageNo == 0) {
 			pageNo = 1;
@@ -36,6 +49,20 @@ public class UserAction extends BaseAction {
 		PageBean<InfoThesis> pagebean = this.setPageBean(list, totalRecords);
 		pagebean.setPageAction("searchThesis_use");
 		return "slistthesis";
+	}
+
+	public String searchThesisKey() throws Exception {
+		if (pageNo == null || pageNo == 0) {
+			pageNo = 1;
+		}
+		int totalRecords = 0;
+		List<InfoThesis> list;
+		list = userbo.searchInfoThesisByPageKey(pageNo, 15, thesis);
+		totalRecords = userbo.searchTotalInfoThesisRecordsKey(thesis)
+				.intValue();
+		PageBean<InfoThesis> pagebean = this.setPageBean(list, totalRecords);
+		pagebean.setPageAction("searchThesisKey_use");
+		return "sklistthesis";
 	}
 
 	public String listPeriodicalPrepare() throws Exception {
@@ -66,6 +93,35 @@ public class UserAction extends BaseAction {
 		return "slistperiodical";
 	}
 
+	public String listPeriodicalPrepareKey() throws Exception {
+		if (pageNo == null || pageNo == 0) {
+			pageNo = 1;
+		}
+		int totalRecords = 0;
+		List<InfoPeriodical> list;
+		list = adminbo.getAllInfoPeriodicalByPage(pageNo, 15);
+		totalRecords = adminbo.getTotalInfoPeriodicalRecords().intValue();
+		PageBean<InfoPeriodical> pagebean = this
+				.setPageBean(list, totalRecords);
+		pagebean.setPageAction("listPeriodicalPrepareKey_use");
+		return "sklistperiodical";
+	}
+
+	public String searchPeriodicalKey() throws Exception {
+		if (pageNo == null || pageNo == 0) {
+			pageNo = 1;
+		}
+		int totalRecords = 0;
+		List<InfoPeriodical> list;
+		list = userbo.searchInfoPeriodicalByPageKey(pageNo, 15, per);
+		totalRecords = userbo.searchTotalInfoPeriodicalRecordsKey(per)
+				.intValue();
+		PageBean<InfoPeriodical> pagebean = this
+				.setPageBean(list, totalRecords);
+		pagebean.setPageAction("searchPeriodicalKey_use");
+		return "sklistperiodical";
+	}
+
 	public String getComments() throws Exception {
 		if (pageNo == null || pageNo == 0) {
 			pageNo = 1;
@@ -83,6 +139,10 @@ public class UserAction extends BaseAction {
 		}
 		PageBean<InfoComment> pagebean = this.setPageBean(list, totalRecords);
 		pagebean.setPageAction("getComments_use");
+		request.put("thesisId", comment.getInfoThesis() == null ? null
+				: comment.getInfoThesis().getThesisId());
+		request.put("periodicalId", comment.getInfoPeriodical() == null ? null
+				: comment.getInfoPeriodical().getPeriodicalId());
 		return "comment";
 	}
 
@@ -117,9 +177,13 @@ public class UserAction extends BaseAction {
 		InfoThesis t = new InfoThesis();
 		t.setSpecialty(user.getPecialty());
 		t.setEducational(user.getEducational());
-		List<InfoThesis> searchInfoThesisByPage = adminbo
-				.searchInfoThesisByPage(1, 15, t);
-
-		return "";
+		List<InfoThesis> thesisList = adminbo.searchInfoThesisByPage(1, 15, t);
+		InfoPeriodical per = new InfoPeriodical();
+		per.setType(user.getPer());
+		List<InfoPeriodical> perList = adminbo.searchInfoPeriodicalByPage(1,
+				15, per);
+		request.put("thesisList", thesisList);
+		request.put("perList", perList);
+		return "recommend";
 	}
 }

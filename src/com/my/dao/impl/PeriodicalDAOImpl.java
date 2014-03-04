@@ -92,4 +92,20 @@ public class PeriodicalDAOImpl implements PeriodicalDAO {
 		}
 
 	}
+
+	@Override
+	public BigInteger searchTotalInfoPeriodicalRecordsKey(InfoPeriodical per)
+			throws Exception {
+		String sql = "select count(periodical_id) from info_periodical where name like ?";
+		String item1 = per.getName() + "%";
+		return basedao.getTotalRecords(sql, item1);
+	}
+
+	@Override
+	public List<InfoPeriodical> searchInfoPeriodicalByPageKey(int pageindex,
+			int pagesize, InfoPeriodical per) throws Exception {
+		String hql = "from InfoPeriodical as a where a.name like ?";
+		String item1 = per.getName() + "%";
+		return basedao.getAllEntityByPage(hql, pageindex, pagesize, item1);
+	}
 }

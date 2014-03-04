@@ -19,6 +19,7 @@ public class InfoUser implements java.io.Serializable {
 	private String school;
 	private String pecialty;
 	private String educational;
+	private String per;
 	private String introduction;
 	private Set infoComments = new HashSet(0);
 
@@ -27,7 +28,7 @@ public class InfoUser implements java.io.Serializable {
 
 	public InfoUser(String name, String pass, String rname, Integer age,
 			String idcard, String school, String pecialty, String educational,
-			String introduction, Set infoComments) {
+			String per, String introduction, Set infoComments) {
 		this.name = name;
 		this.pass = pass;
 		this.rname = rname;
@@ -36,6 +37,7 @@ public class InfoUser implements java.io.Serializable {
 		this.school = school;
 		this.pecialty = pecialty;
 		this.educational = educational;
+		this.per = per;
 		this.introduction = introduction;
 		this.infoComments = infoComments;
 	}
@@ -110,6 +112,14 @@ public class InfoUser implements java.io.Serializable {
 
 	public void setEducational(String educational) {
 		this.educational = educational;
+	}
+
+	public String getPer() {
+		return per;
+	}
+
+	public void setPer(String per) {
+		this.per = per;
 	}
 
 	public String getIntroduction() {

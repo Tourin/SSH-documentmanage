@@ -32,6 +32,9 @@
         <property name="educational" type="string">
             <column name="educational" length="10" />
         </property>
+        <property name="per" type="string">
+            <column name="per" length="20" />
+        </property>
         <property name="introduction" type="string">
             <column name="introduction" length="65535" />
         </property>

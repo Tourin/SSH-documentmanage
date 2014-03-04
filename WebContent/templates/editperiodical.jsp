@@ -54,7 +54,7 @@
 						<tr>
 							<td></td>
 							<td><input class="button" type="submit" value="修改" />&nbsp;&nbsp;<input
-								class="button" onclick="window.location.href='listperiodical.jsp'"
+								class="button" onclick="window.location.href='listperiodical.jsp?unitId=${per.infoUnit.unitId}'"
 								value="取消" type="reset" /></td>
 						</tr>
 					</tfoot>

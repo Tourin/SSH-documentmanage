@@ -1,4 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -46,11 +47,11 @@
 								name="thesis.educational" class="grid-3"
 								data-validation-placement="right">
 									<option value="学士"
-										<c:if test="${auth.educational eq '学士'}">selected="selected"</c:if>>学士</option>
+										<c:if test="${thesis.educational eq '学士'}">selected="selected"</c:if>>学士</option>
 									<option value="硕士"
-										<c:if test="${auth.educational eq '硕士'}">selected="selected"</c:if>>硕士</option>
+										<c:if test="${thesis.educational eq '硕士'}">selected="selected"</c:if>>硕士</option>
 									<option value="博士"
-										<c:if test="${auth.educational eq '博士'}">selected="selected"</c:if>>博士</option>
+										<c:if test="${thesis.educational eq '博士'}">selected="selected"</c:if>>博士</option>
 							</select></td>
 						</tr>
 					</tbody>
@@ -58,7 +59,7 @@
 						<tr>
 							<td></td>
 							<td><input class="button" type="submit" value="修改" />&nbsp;&nbsp;<input
-								class="button" onclick="window.location.href='listthesis.jsp'"
+								class="button" onclick="window.location.href='listthesis.jsp?authorId=${thesis.infoAuthor.authorId}'"
 								value="取消" type="reset" /></td>
 						</tr>
 					</tfoot>

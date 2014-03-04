@@ -63,6 +63,12 @@
 								data-validation-placement="right" value="${user.pecialty}" /></td>
 						</tr>
 						<tr class="form-item">
+							<th class="form-key"><label for="text">关注期刊类型：</label></th>
+							<td class="form-value"><input id="text" name="user.per"
+								class="text-input grid-3" type="text" data-parent=".form-item"
+								data-validation-placement="right" value="${user.per}" /></td>
+						</tr>
+						<tr class="form-item">
 							<th class="form-key"><label for="select">学历：</label></th>
 							<td class="form-value"><select id="select"
 								name="user.educational" class="grid-3"
