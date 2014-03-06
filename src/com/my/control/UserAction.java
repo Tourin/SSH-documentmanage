@@ -7,6 +7,7 @@ import com.my.bean.InfoAdmin;
 import com.my.bean.InfoComment;
 import com.my.bean.InfoPeriodical;
 import com.my.bean.InfoThesis;
+import com.my.bean.InfoUnit;
 import com.my.bean.InfoUser;
 import com.my.util.PageBean;
 
@@ -179,6 +180,9 @@ public class UserAction extends BaseAction {
 		t.setEducational(user.getEducational());
 		List<InfoThesis> thesisList = adminbo.searchInfoThesisByPage(1, 15, t);
 		InfoPeriodical per = new InfoPeriodical();
+		InfoUnit infoUnit = new InfoUnit();
+		infoUnit.setName("");
+		per.setInfoUnit(infoUnit);
 		per.setType(user.getPer());
 		List<InfoPeriodical> perList = adminbo.searchInfoPeriodicalByPage(1,
 				15, per);

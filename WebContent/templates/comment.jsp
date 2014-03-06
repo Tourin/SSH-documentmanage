@@ -21,7 +21,7 @@
 </head>
 <body>
 	<div class="container">
-		<c:forEach var="comment" items="${list}">
+		<c:forEach var="comment" items="${request.pagebean.list}">
 			<div class="panel panel-info grid-6">
 				<h5 class="panel_head">
 					<fmt:formatDate value="${comment.date}"

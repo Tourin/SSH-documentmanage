@@ -73,10 +73,8 @@
 							<td class="form-value"><select id="select"
 								name="user.educational" class="grid-3"
 								data-validation-placement="right">
-									<option value="大专"
-										<c:if test="${user.educational eq '大专'}">selected="selected"</c:if>>大专</option>
-									<option value="本科"
-										<c:if test="${user.educational eq '本科'}">selected="selected"</c:if>>本科</option>
+									<option value="学士"
+										<c:if test="${user.educational eq '学士'}">selected="selected"</c:if>>学士</option>
 									<option value="硕士"
 										<c:if test="${user.educational eq '硕士'}">selected="selected"</c:if>>硕士</option>
 									<option value="博士"

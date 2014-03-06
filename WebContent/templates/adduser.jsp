@@ -86,8 +86,7 @@
 							<td class="form-value"><select id="select"
 								name="user.educational" class="grid-3"
 								data-validation-placement="right">
-									<option value="大专">大专</option>
-									<option value="本科">本科</option>
+									<option value="学士">学士</option>
 									<option value="硕士">硕士</option>
 									<option value="博士">博士</option>
 							</select></td>

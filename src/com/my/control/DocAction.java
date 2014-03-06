@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import org.apache.commons.io.FileUtils;
 
@@ -55,7 +54,9 @@ public class DocAction extends BaseAction {
 		String dateTime = date.format(new Date());
 		realPath += dateTime;
 
-		uploadFileFileName = UUID.randomUUID().toString()
+		uploadFileFileName = uploadFileFileName.substring(0,
+				uploadFileFileName.lastIndexOf('.'))
+				+ System.currentTimeMillis()
 				+ uploadFileFileName.substring(uploadFileFileName
 						.lastIndexOf('.'));
 		// application/pdf
@@ -63,7 +64,9 @@ public class DocAction extends BaseAction {
 		System.out.println(uploadFileContentType);
 		// 控制上传类型
 		if (uploadFileContentType.equals("application/pdf")
-				|| uploadFileContentType.equals("application/msword")) {
+				|| uploadFileContentType.equals("application/msword")
+				|| uploadFileContentType
+						.equals("application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
 			// 判断文件是否为空,并且文件不能大于2M
 			if (uploadFile != null) {
 				// 根据 parent 抽象路径名和 child 路径名字符串创建一个新 File 实例。
@@ -88,7 +91,7 @@ public class DocAction extends BaseAction {
 			}
 		} else {
 			request.put("message", "请选择word或者pdf类型文件!");
-			return "addauthor";
+			return "addthesis";
 		}
 		if (adminbo.addInfoThesis(thesis)) {
 			request.put("message",
@@ -109,15 +112,16 @@ public class DocAction extends BaseAction {
 		String dateTime = date.format(new Date());
 		realPath += dateTime;
 
-		uploadFileFileName = UUID.randomUUID().toString()
+		uploadFileFileName = uploadFileFileName.substring(0,
+				uploadFileFileName.lastIndexOf('.'))
+				+ System.currentTimeMillis()
 				+ uploadFileFileName.substring(uploadFileFileName
 						.lastIndexOf('.'));
-		// application/pdf
-		// application/msword
-		System.out.println(uploadFileContentType);
 		// 控制上传类型
 		if (uploadFileContentType.equals("application/pdf")
-				|| uploadFileContentType.equals("application/msword")) {
+				|| uploadFileContentType.equals("application/msword")
+				|| uploadFileContentType
+						.equals("application/vnd.openxmlformats-officedocument.wordprocessingml.document")) {
 			// 判断文件是否为空,并且文件不能大于2M
 			if (uploadFile != null) {
 				// 根据 parent 抽象路径名和 child 路径名字符串创建一个新 File 实例。
@@ -127,9 +131,6 @@ public class DocAction extends BaseAction {
 					// 如果不存在，则递归创建此路径
 					filePath.getParentFile().mkdirs();
 				}
-				System.out.println(uploadFileFileName);
-				System.out.println(filePath.getParentFile());
-				System.out.println(filePath);
 				per.setPath(filePath.toString().substring(38)
 						.replace('\\', '/'));
 				// 将文件保存到硬盘上,Struts2会帮我们自动删除临时文件

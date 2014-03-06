@@ -64,8 +64,8 @@ public class AccountAction extends BaseAction {
 				return "login";
 			} else {
 				stf.append("<a class='menu_item is-menu_item-on js-loading-trigger' href='templates/recommend.jsp' target='mainframe' hidefocus>首页</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/sklistthesis.jsp' target='mainframe' hidefocus>论文关键字查询</a>");
-				stf.append("<a class='menu_item js-loading-trigger' href='templates/sklistperiodical.jsp' target='mainframe' hidefocus>期刊关键字查询</a>");
+				stf.append("<a class='menu_item js-loading-trigger' href='templates/sklistthesis.jsp' target='mainframe' hidefocus>论文关键字搜索</a>");
+				stf.append("<a class='menu_item js-loading-trigger' href='templates/sklistperiodical.jsp' target='mainframe' hidefocus>期刊关键字搜索</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/slistthesis.jsp' target='mainframe' hidefocus>论文分类查询</a>");
 				stf.append("<a class='menu_item js-loading-trigger' href='templates/slistperiodical.jsp' target='mainframe' hidefocus>期刊分类查询</a>");
 				stf2.append("<a class='menu_item js-loading-trigger' href='templates/edituser.jsp' target='mainframe' hidefocus>基础信息</a>");

@@ -19,17 +19,38 @@
 </script>
 </head>
 <body>
-	<c:if test="${empty thesisList or empty perList}">
+	<c:if test="${thesisList==null or perList==null}">
 		<c:redirect url="recommend_use" />
 	</c:if>
 	<div class="container">
 		<div class="panel panel-info grid-6">
 			<h5 class="panel_head">论文推荐</h5>
-			<div class="panel_body"></div>
+			<div class="panel_body">
+				<c:forEach var="thesis" items="${thesisList}">
+					标题:${thesis.title}
+					作者:${thesis.infoAuthor.name}
+					专业:${thesis.specialty}
+					学历:${thesis.educational}
+					<a href="..${thesis.path}">下载</a>
+					<a
+						href="getComments_use?comment.infoThesis.thesisId=${thesis.thesisId}">查看评论</a>
+					<br />
+				</c:forEach>
+			</div>
 		</div>
 		<div class="panel panel-info grid-6">
 			<h5 class="panel_head">期刊推荐</h5>
-			<div class="panel_body"></div>
+			<div class="panel_body">
+				<c:forEach var="per" items="${perList}">
+					名称:${per.name}
+					发刊单位:${per.infoUnit.name}
+					类型:${per.type}
+					<a href="..${per.path}">下载</a>
+					<a
+						href="getComments_use?comment.infoPeriodical.periodicalId=${per.periodicalId}">查看评论</a>
+					<br />
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	<!-- / .container -->
