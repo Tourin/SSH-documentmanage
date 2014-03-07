@@ -45,6 +45,7 @@ public class UserAction extends BaseAction {
 		}
 		int totalRecords = 0;
 		List<InfoThesis> list;
+		thesis.setInfoAuthor(null);
 		list = adminbo.searchInfoThesisByPage(pageNo, 15, thesis);
 		totalRecords = adminbo.searchTotalInfoThesisRecords(thesis).intValue();
 		PageBean<InfoThesis> pagebean = this.setPageBean(list, totalRecords);
@@ -58,6 +59,7 @@ public class UserAction extends BaseAction {
 		}
 		int totalRecords = 0;
 		List<InfoThesis> list;
+		thesis.setInfoAuthor(null);
 		list = userbo.searchInfoThesisByPageKey(pageNo, 15, thesis);
 		totalRecords = userbo.searchTotalInfoThesisRecordsKey(thesis)
 				.intValue();
@@ -86,6 +88,7 @@ public class UserAction extends BaseAction {
 		}
 		int totalRecords = 0;
 		List<InfoPeriodical> list;
+		per.setInfoUnit(null);
 		list = adminbo.searchInfoPeriodicalByPage(pageNo, 15, per);
 		totalRecords = adminbo.searchTotalInfoPeriodicalRecords(per).intValue();
 		PageBean<InfoPeriodical> pagebean = this
@@ -114,6 +117,7 @@ public class UserAction extends BaseAction {
 		}
 		int totalRecords = 0;
 		List<InfoPeriodical> list;
+		per.setInfoUnit(null);
 		list = userbo.searchInfoPeriodicalByPageKey(pageNo, 15, per);
 		totalRecords = userbo.searchTotalInfoPeriodicalRecordsKey(per)
 				.intValue();

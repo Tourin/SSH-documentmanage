@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <html>
 <HEAD>
-<TITLE>论文期刊管理系统</TITLE>
+<TITLE>期刊论文管理系统</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=gb2312">
 
 <link rel="stylesheet" href="/documentmanage/framework/css/style.css"
@@ -25,7 +25,7 @@
 								<td colspan=3 height="40">&nbsp;</td>
 							</tr>
 							<tr>
-								<td class=a1 align=middle width="100%" colspan="3"><h3>论文期刊管理系统</h3></td>
+								<td class=a1 align=middle width="100%" colspan="3"><h3>期刊论文管理系统</h3></td>
 							</tr>
 
 							<tr>

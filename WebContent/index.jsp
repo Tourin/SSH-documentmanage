@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>论文期刊管理系统</title>
+  <title>期刊论文管理系统</title>
   <link rel="stylesheet" href="styles/backstage.css" />
   <style>
     html, body {
@@ -28,7 +28,7 @@
       <img src="images/logo.png" alt="Logo" width="136" height="80" />
     </a><!-- / .logo -->
 
-    <h1 class="sitename fleft">论文期刊管理系统</h1>
+    <h1 class="sitename fleft">期刊论文管理系统</h1>
 
     <div class="userinfo fright shame-dbmrgn">
       欢迎您，${admin.name}${user.name}&nbsp;
